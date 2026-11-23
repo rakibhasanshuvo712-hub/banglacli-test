@@ -1,0 +1,293 @@
+@import "tailwindcss";
+
+/* ========== BRAND THEME ========== */
+@theme {
+  --color-cream: #fcf8f4;
+  --color-cream-deep: #f5ece5;
+  --color-plum: #3d1f2a;
+  --color-plum-soft: #6d4c58;
+  --color-rose: #b6596e;
+  --color-blush: #f2dad8;
+  --color-gold: #c9a15a;
+  --color-sage: #91a78d;
+
+  --font-display: var(--font-display-source), Georgia, "Times New Roman", serif;
+  --font-body: var(--font-body-source), system-ui, -apple-system, sans-serif;
+  --font-script: var(--font-script-source), "Snell Roundhand", cursive;
+}
+
+/* ========== BASE ========== */
+:root {
+  color-scheme: light;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-cream);
+}
+
+/* A whisper of paper grain across the whole studio */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 90;
+  pointer-events: none;
+  opacity: 0.05;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.55'/%3E%3C/svg%3E");
+}
+
+::selection {
+  background: var(--color-blush);
+  color: var(--color-plum);
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-cream);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #d9c5c8;
+  border: 3px solid var(--color-cream);
+  border-radius: 999px;
+}
+
+/* ========== TYPOGRAPHY ========== */
+.script {
+  font-family: var(--font-script);
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1.16em;
+  line-height: 0.78;
+  letter-spacing: 0.005em;
+  padding-right: 0.08em;
+  display: inline-block;
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  color: var(--color-rose);
+}
+
+.eyebrow::before {
+  content: "";
+  width: 2rem;
+  height: 1px;
+  background: currentColor;
+  opacity: 0.65;
+}
+
+.micro-label {
+  font-size: 0.6rem;
+  font-weight: 600;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+}
+
+.hairline {
+  height: 1px;
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(182, 89, 110, 0.35),
+    transparent
+  );
+}
+
+/* ========== BUTTONS ========== */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  border-radius: 999px;
+  background: var(--color-plum);
+  color: #fff;
+  padding: 0.95rem 1.7rem;
+  font-size: 0.76rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  box-shadow: 0 16px 34px -18px rgba(61, 31, 42, 0.85);
+  transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn-primary:hover {
+  transform: translateY(-3px);
+  background: #572b39;
+  box-shadow: 0 24px 46px -18px rgba(61, 31, 42, 0.65);
+}
+
+.btn-primary:focus-visible,
+.btn-outline:focus-visible,
+.field:focus-visible {
+  outline: 2px solid var(--color-rose);
+  outline-offset: 3px;
+}
+
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  border-radius: 999px;
+  border: 1px solid rgba(61, 31, 42, 0.24);
+  color: var(--color-plum);
+  padding: 0.9rem 1.7rem;
+  font-size: 0.76rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  transition: transform 0.3s ease, background 0.3s ease, border-color 0.3s ease;
+}
+
+.btn-outline:hover {
+  transform: translateY(-3px);
+  background: #fff;
+  border-color: rgba(61, 31, 42, 0.5);
+}
+
+.glass {
+  background: rgba(252, 248, 244, 0.84);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+}
+
+.field {
+  width: 100%;
+  border-radius: 0.9rem;
+  border: 1px solid rgba(61, 31, 42, 0.14);
+  background: #fff;
+  padding: 0.9rem 1rem;
+  font-size: 0.9rem;
+  color: var(--color-plum);
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.field::placeholder {
+  color: rgba(61, 31, 42, 0.38);
+}
+
+.field:hover {
+  border-color: rgba(61, 31, 42, 0.28);
+}
+
+.field:focus {
+  border-color: var(--color-rose);
+  background: #fff;
+  box-shadow: 0 0 0 4px rgba(182, 89, 110, 0.13);
+}
+
+/* ========== IMAGES & SURFACES ========== */
+.photo-frame {
+  isolation: isolate;
+}
+
+.photo-frame::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.45);
+  pointer-events: none;
+}
+
+.soft-card {
+  border: 1px solid rgba(61, 31, 42, 0.07);
+  background: #fff;
+  box-shadow: 0 22px 60px -42px rgba(61, 31, 42, 0.55);
+  transition: transform 0.45s cubic-bezier(0.2, 0.7, 0.2, 1),
+    box-shadow 0.45s ease, border-color 0.45s ease;
+}
+
+.soft-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(182, 89, 110, 0.25);
+  box-shadow: 0 34px 80px -42px rgba(61, 31, 42, 0.42);
+}
+
+/* ========== MOTION ========== */
+.float-slow {
+  animation: floaty 9s ease-in-out infinite;
+}
+
+.float-slower {
+  animation: floaty 12s ease-in-out infinite reverse;
+}
+
+.spin-slow {
+  animation: spin 26s linear infinite;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+.rise {
+  animation: rise 0.85s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+
+.rise-d1 { animation-delay: 0.1s; }
+.rise-d2 { animation-delay: 0.2s; }
+.rise-d3 { animation-delay: 0.32s; }
+.rise-d4 { animation-delay: 0.44s; }
+
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(28px);
+  filter: blur(3px);
+  transition: opacity 0.9s cubic-bezier(0.2, 0.7, 0.2, 1),
+    transform 0.9s cubic-bezier(0.2, 0.7, 0.2, 1), filter 0.9s ease;
+  will-change: opacity, transform;
+}
+
+[data-reveal].is-visible {
+  opacity: 1;
+  transform: none;
+  filter: none;
+}
+
+@keyframes floaty {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-18px) rotate(2deg); }
+}
+
+@keyframes rise {
+  from { opacity: 0; transform: translateY(26px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  [data-reveal] {
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+  }
+}
