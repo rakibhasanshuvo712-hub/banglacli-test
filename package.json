@@ -1,0 +1,11 @@
+{
+  "name": "portfolio-workspace",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "npm --prefix nextjs-website run dev",
+    "build": "npm --prefix nextjs-website run build",
+    "start": "npm --prefix nextjs-website run start",
+    "lint": "npm --prefix nextjs-website run lint"
+  }
+}
